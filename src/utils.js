@@ -27,5 +27,5 @@ export function getActorRenderData(actor) {
     const character = getCharacter(actor);
     const picture = getPicture(actor);
 
-    return `<span class="actor"><img class="actor-picture" src="${picture}"/><div class="actor-name">${actor.name}</div><div class="actor-character">${character}</div></span>`
+    return `<span class="actor"><img class="actor-picture" src="${picture}"/><div class="actor-name">Actor: ${actor.name}</div><div class="actor-character">${character}</div></span>`
 }
