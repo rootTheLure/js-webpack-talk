@@ -1,6 +1,6 @@
 import { getActorRenderData } from './utils.js';
 import actors from './actors.js';
-// import $ from '../node_modules/jquery/dist/jquery.js';
+// import $ from 'jquery';
 
 
 const actorsEL = $('.actors');

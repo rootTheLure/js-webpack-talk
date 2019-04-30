@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack src/app.js -o dist/app.bundle.js",
+    "build:prod": "webpack --mode=production src/app.js -o dist/app.bundle.js",
+    "build:dev": "webpack --mode=development src/app.js -o dist/app.bundle.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.4.0",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "webpack": "^4.30.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.1"
   }
 }

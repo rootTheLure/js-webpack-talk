@@ -1,5 +1,3 @@
-// import $ from '../node_modules/jquery/dist/jquery.js';
-
 const defaultPictureURI = 'https://via.placeholder.com/200x350';
 
 export function getCharacter(actor) {
