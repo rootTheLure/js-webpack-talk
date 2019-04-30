@@ -1,12 +1,14 @@
 import { getActorRenderData } from './utils.js';
 import actors from './actors.js';
-// import $ from 'jquery';
+import $ from 'jquery';
+import _ from 'lodash';
 
+import './style.css';
 
-const actorsEL = $('.actors');
+$('body').append('<ul class="actors"></ul>');
 
 _.forEach(actors, (actor) => {
     const actorRenderData = getActorRenderData(actor);
 
-    actorsEL.append(`<li>${actorRenderData}</li>`);
+    $('.actors').append(`<li>${actorRenderData}</li>`);
 });
