@@ -9,6 +9,10 @@ module.exports = {
     entry: './src/index.js',
     devtool: 'cheap-module-eval-source-map',
     mode: 'development',
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM'
+    },
     output: {
         path: DIST_DIR,
         filename: 'app.bundle.js'
