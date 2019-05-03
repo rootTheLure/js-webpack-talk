@@ -1,9 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+import ExtractCssChunks from 'extract-css-chunks-webpack-plugin';
+
+
+const extractLoader = ExtractCssChunks.loader;
 
 const ROOT_DIR = process.cwd();
 const DIST_DIR = path.resolve(ROOT_DIR, './dist');
+const DIST_CLIENT_STATIC = path.resolve(DIST_DIR, './static');
 
 module.exports = {
     entry: {
@@ -36,17 +41,13 @@ module.exports = {
             test: /\.jsx?$/,         // Match both .js and .jsx files
             exclude: /node_modules/,
             loader: "babel-loader",
-            query:
-              {
-                presets:['react']
-              }
             },
         {
-            test: /\.s?css$/,
+            test: new RegExp('\\.s?css$'),
             use: [
-                'style-loader', // creates style nodes from JS strings
-                'css-loader', // translates CSS into CommonJS
-                'sass-loader' // compiles Sass to CSS, using Node Sass by default
+                extractLoader,
+                'css-loader',
+                'sass-loader',
             ]
         }, {
             test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -62,6 +63,11 @@ module.exports = {
         new CleanWebpackPlugin(['./dist/*'], { root: ROOT_DIR }),
         new HtmlWebpackPlugin({
             template: './index.html'
+        }),
+        new ExtractCssChunks({
+            path: './dist',
+            filename: '[name].[hash].css',
+            chunkFilename: '[id].[contenthash].css',
         })
     ]
 };
