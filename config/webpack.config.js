@@ -6,7 +6,10 @@ const ROOT_DIR = process.cwd();
 const DIST_DIR = path.resolve(ROOT_DIR, './dist');
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: {
+        main: ['babel-polyfill', './src/index.js'],
+        utils: './src/utils/actor.utils.js'
+    },
     devtool: 'cheap-module-eval-source-map',
     mode: 'development',
     externals: {
@@ -15,7 +18,7 @@ module.exports = {
     },
     output: {
         path: DIST_DIR,
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
     },
     devServer: {
         contentBase: DIST_DIR,
@@ -49,6 +52,11 @@ module.exports = {
             test: /\.(png|woff|woff2|eot|ttf|svg)$/,
             loader: 'url-loader?limit=100000'
         }]
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     plugins: [
         new CleanWebpackPlugin(['./dist/*'], { root: ROOT_DIR }),

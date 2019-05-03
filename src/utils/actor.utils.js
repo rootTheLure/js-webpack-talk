@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const defaultPictureURI = 'https://via.placeholder.com/200x350';
 
 export function getCharacter(actor) {
