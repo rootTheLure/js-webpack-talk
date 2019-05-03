@@ -6,7 +6,7 @@ const ROOT_DIR = process.cwd();
 const DIST_DIR = path.resolve(ROOT_DIR, './dist');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['babel-polyfill', './src/index.js'],
     devtool: 'cheap-module-eval-source-map',
     mode: 'development',
     externals: {
