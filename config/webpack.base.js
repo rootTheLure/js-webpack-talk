@@ -15,8 +15,6 @@ module.exports = {
         main: ['babel-polyfill', './src/index.js'],
         utils: './src/utils/actor.utils.js'
     },
-    devtool: 'cheap-module-eval-source-map',
-    mode: 'development',
     externals: {
         'react': 'React',
         'react-dom': 'ReactDOM'
@@ -24,11 +22,6 @@ module.exports = {
     output: {
         path: DIST_DIR,
         filename: '[name].bundle.js'
-    },
-    devServer: {
-        contentBase: DIST_DIR,
-        compress: true,
-        port: 9000
     },
     module: {
         rules: [{
