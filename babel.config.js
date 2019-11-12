@@ -22,7 +22,7 @@ module.exports = {
       useBuiltIns: 'entry',
       corejs: 3,
     }],
-    '@babel/preset-react',
+    '@babel/preset-react'
   ],
   plugins: [
     // This handsome stuff is not yet in preset-env...
